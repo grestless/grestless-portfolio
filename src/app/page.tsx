@@ -4,12 +4,14 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Marquee from "@/components/Marquee";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import SelectedWorks from "@/components/SelectedWorks";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
+const Marquee = dynamic(() => import("@/components/Marquee"), { ssr: false });
+const Services = dynamic(() => import("@/components/Services"), { ssr: false });
+const About = dynamic(() => import("@/components/About"), { ssr: true });
+const SelectedWorks = dynamic(() => import("@/components/SelectedWorks"), { ssr: true });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,8 +57,6 @@ export default function Home() {
           delay: 2,
         }
       );
-
-      /* ── Section dividers (removed for cleaner aesthetic) ── */
     },
     { scope: mainRef }
   );
@@ -64,107 +64,111 @@ export default function Home() {
   return (
     <main ref={mainRef}>
       {/* ═══ HERO ═══ */}
-      <section className="editorial-px relative w-full flex min-h-[85vh] lg:min-h-[100dvh] flex-col items-center justify-center pt-[140px] pb-16 lg:pt-[160px] lg:pb-24 overflow-hidden">
-
-        {/* Tag pushes content down safely */}
-        <div className="hero-fade relative z-10 w-full max-w-4xl flex items-center justify-center gap-3 mb-6 lg:mb-10">
-          <span
-            className="h-2 w-2 rounded-full hidden md:block"
-            style={{ backgroundColor: "var(--color-accent)" }}
-          />
-          <span
-            className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] sm:tracking-[0.3em] text-center"
-            style={{ color: "var(--color-text-primary)", opacity: 0.8 }}
-          >
-            Full Stack Developer — Tucumán, Argentina
-          </span>
-        </div>
-
-        {/* Title */}
-        <h1
-          className="font-display relative z-10 w-full max-w-6xl text-center mt-2 font-bold leading-[1.05] tracking-tight"
-          style={{ fontSize: "clamp(2.5rem, 5.5vw, 6rem)" }}
-        >
-          {[
-            "No hago sitios",
-            "bonitos. Hago sitios",
-            "que la gente",
-            "quiere usar.",
-          ].map((text, i) => (
-            <span key={i} className="block overflow-hidden pb-1 pt-1">
-              <span className="hero-line inline-block">
-                {i === 1 ? (
-                  <>
-                    bonitos.{" "}
-                    <span style={{ color: "var(--color-accent)" }}>
-                      Hago
-                    </span>
-                    {" sitios"}
-                  </>
-                ) : (
-                  text
-                )}
-              </span>
-            </span>
-          ))}
-        </h1>
-
-        {/* Subtitle */}
-        <p
-          className="hero-fade relative z-10 mt-8 max-w-lg text-center text-base sm:text-lg lg:text-xl"
-          style={{ color: "var(--color-text-secondary)", opacity: 0.8 }}
-        >
-          Desarrollo web con foco en experiencia de usuario, rendimiento y
-          detalles que importan.
-        </p>
-
-        {/* CTA */}
-        <div className="hero-fade flex flex-col items-center gap-8 sm:flex-row relative mt-12 z-10">
-          <a
-            href="#trabajos"
-            className="magnetic group flex flex-col"
-          >
-            <div
-              className="flex items-center gap-4 transition-colors duration-300"
-              style={{ color: "var(--color-text-primary)" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--color-accent)";
-                const line = e.currentTarget.nextElementSibling as HTMLElement;
-                if (line) line.style.backgroundColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--color-text-primary)";
-                const line = e.currentTarget.nextElementSibling as HTMLElement;
-                if (line) line.style.backgroundColor = "var(--color-text-primary)";
-              }}
-            >
-              <span className="whitespace-nowrap text-sm font-bold uppercase tracking-[0.2em]">Ver Trabajos</span>
-              <span className="text-xl font-light transform transition-transform duration-300 group-hover:translate-x-2">→</span>
-            </div>
-            {/* Brutalist persistent underline */}
-            <div
-              className="mt-2 h-[2px] w-full transition-colors duration-300"
-              style={{ backgroundColor: "var(--color-text-primary)" }}
+      <section className="editorial-px relative w-full flex min-h-[85vh] lg:min-h-[100dvh] flex-col items-center pt-[96px] pb-12 sm:pt-[120px] sm:pb-16 lg:pt-[160px] lg:pb-24 overflow-hidden">
+        <div className="flex w-full flex-1 flex-col items-center justify-center">
+          {/* Tag */}
+          <div className="hero-fade relative z-10 w-full max-w-4xl flex items-center justify-center gap-3 mb-4 sm:mb-6 lg:mb-10">
+            <span
+              className="h-2 w-2 rounded-full hidden md:block"
+              style={{ backgroundColor: "var(--color-accent)" }}
             />
-          </a>
+            <span
+              className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] sm:tracking-[0.3em] text-center"
+              style={{ color: "var(--color-text-primary)", opacity: 0.8 }}
+            >
+              Full Stack Developer — Tucumán, Argentina
+            </span>
+          </div>
 
-          <a
-            href="#contacto"
-            className="magnetic whitespace-nowrap text-sm font-bold uppercase tracking-[0.2em] transition-colors duration-200"
-            style={{ color: "var(--color-text-secondary)" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--color-accent)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--color-text-secondary)")
-            }
+          {/* Title */}
+          <h1
+            className="font-display relative z-10 w-full max-w-6xl text-center mt-2 font-bold leading-[0.98] sm:leading-[1.05] tracking-tight"
+            style={{ fontSize: "clamp(2.15rem, 10vw, 6rem)" }}
           >
-            Contacto
-          </a>
+            {[
+              "No hago sitios",
+              "bonitos. Hago sitios",
+              "que la gente",
+              "quiere usar.",
+            ].map((text, i) => (
+              <span key={i} className="block overflow-hidden py-0.5 sm:py-1">
+                <span className="hero-line inline-block">
+                  {i === 1 ? (
+                    <>
+                      bonitos.{" "}
+                      <span style={{ color: "var(--color-accent)" }}>
+                        Hago
+                      </span>
+                      {" sitios"}
+                    </>
+                  ) : (
+                    text
+                  )}
+                </span>
+              </span>
+            ))}
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            className="hero-fade relative z-10 mt-6 sm:mt-8 max-w-lg text-center text-base sm:text-lg lg:text-xl px-2 sm:px-0"
+            style={{ color: "var(--color-text-secondary)", opacity: 0.8 }}
+          >
+            Desarrollo web con foco en experiencia de usuario, rendimiento y
+            detalles que importan.
+          </p>
+
+          {/* CTA */}
+          <div className="hero-fade flex flex-col items-center gap-5 sm:gap-8 sm:flex-row relative mt-8 sm:mt-12 z-10">
+            <a
+              href="#trabajos"
+              className="magnetic group flex flex-col"
+            >
+              <div
+                className="flex items-center gap-4 transition-colors duration-300"
+                style={{ color: "var(--color-text-primary)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--color-accent)";
+                  const line = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (line) line.style.backgroundColor = "var(--color-accent)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--color-text-primary)";
+                  const line = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (line) line.style.backgroundColor = "var(--color-text-primary)";
+                }}
+              >
+                <span className="whitespace-nowrap text-sm font-bold uppercase tracking-[0.2em]">
+                  Ver Trabajos
+                </span>
+                <span className="text-xl font-light transform transition-transform duration-300 group-hover:translate-x-2">
+                  →
+                </span>
+              </div>
+              <div
+                className="mt-2 h-[2px] w-full transition-colors duration-300"
+                style={{ backgroundColor: "var(--color-text-primary)" }}
+              />
+            </a>
+
+            <a
+              href="#contacto"
+              className="magnetic whitespace-nowrap text-sm font-bold uppercase tracking-[0.2em] transition-colors duration-200"
+              style={{ color: "var(--color-text-secondary)" }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--color-accent)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--color-text-secondary)")
+              }
+            >
+              Contacto
+            </a>
+          </div>
         </div>
 
-        {/* Scroll indicator floats near bottom safely */}
-        <div className="relative flex flex-col items-center gap-4 mt-16 lg:mt-20">
+        {/* Scroll indicator */}
+        <div className="mt-14 sm:mt-10 lg:mt-14 flex flex-col items-center gap-4">
           <span
             className="block text-[10px] uppercase tracking-[0.4em]"
             style={{ color: "var(--color-text-secondary)" }}
@@ -189,12 +193,8 @@ export default function Home() {
       {/* ═══ SERVICES ═══ */}
       <Services />
 
-      {/* ═══ DIVIDER (Removed) ═══ */}
-
       {/* ═══ ABOUT ═══ */}
       <About />
-
-      {/* ═══ DIVIDER (Removed) ═══ */}
 
       {/* ═══ SELECTED WORKS ═══ */}
       <SelectedWorks />

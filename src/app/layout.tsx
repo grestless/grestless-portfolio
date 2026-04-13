@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
-import Navbar from "@/components/Navbar";
 import CanvasNoise from "@/components/CanvasNoise";
 
 const inter = Inter({

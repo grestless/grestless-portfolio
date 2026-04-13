@@ -156,24 +156,30 @@ export default function CustomCursor() {
       {/* Dot */}
       <div
         ref={dotRef}
-        className="pointer-events-none fixed top-0 left-0 z-[9999] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none fixed z-[9999]"
         style={{
+          top: "-3px",
+          left: "-3px",
           width: "6px",
           height: "6px",
           borderRadius: "50%",
           backgroundColor: "var(--color-accent)",
+          willChange: "transform",
         }}
       />
       {/* Ring */}
       <div
         ref={ringRef}
-        className="pointer-events-none fixed top-0 left-0 z-[9998] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none fixed z-[9998]"
         style={{
+          top: "-16px",
+          left: "-16px",
           width: "32px",
           height: "32px",
           borderRadius: "50%",
           border: "1px solid var(--color-accent)",
           opacity: 1,
+          willChange: "transform",
         }}
       />
     </div>
