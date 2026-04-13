@@ -67,11 +67,13 @@ export default function Services() {
     >
       <div
         ref={scrollContentRef}
+        // Volvemos a items-center para que no quede ese aire blanco gigante arriba
         className="flex h-full w-[max-content] items-center"
       >
-        {/* Intro Panel (Pins to screen width initially) */}
-        <div className="editorial-px flex h-full w-screen shrink-0 flex-col justify-start pt-[15vh] md:justify-center md:pt-0 lg:pl-[10vw]">
-          <div className="mb-10 flex items-center gap-4 md:mb-16">
+        {/* Intro Panel: Ocupa toda la pantalla (w-screen) y se centra perfectamente */}
+        <div className="editorial-px flex h-full w-screen shrink-0 flex-col justify-center lg:pl-[10vw]">
+          {/* Aumentado el margen inferior en mobile de mb-6 a mb-12 */}
+          <div className="mb-12 flex items-center gap-4 md:mb-16 text-balance">
             <div
               className="h-2 w-2 rounded-full"
               style={{ backgroundColor: "var(--color-accent)" }}
@@ -84,8 +86,9 @@ export default function Services() {
             </span>
           </div>
 
+          {/* Tamaño base ajustado a text-6xl (y un leading un poquito más suelto) para rellenar más */}
           <h2
-            className="font-display max-w-5xl text-5xl font-bold leading-[0.85] sm:text-6xl md:text-8xl lg:text-9xl"
+            className="font-display max-w-5xl text-6xl font-bold leading-[0.95] sm:text-7xl md:text-8xl lg:text-9xl"
             style={{ letterSpacing: "-0.05em" }}
           >
             Diseño, <br />
@@ -93,8 +96,9 @@ export default function Services() {
             <span style={{ color: "var(--color-accent)" }}>entrega.</span>
           </h2>
 
-          <div className="mt-8 max-w-md md:mt-12">
-            <p className="text-lg opacity-60 md:text-xl" style={{ color: "var(--color-text-primary)" }}>
+          {/* Aumentado el margen superior de mt-8 a mt-12 y un texto un poquito más grande (text-xl) */}
+          <div className="mt-12 max-w-md md:mt-16">
+            <p className="text-xl leading-relaxed opacity-60 md:text-2xl" style={{ color: "var(--color-text-primary)" }}>
               Soluciones digitales de alto nivel enfocadas en rendimiento, estética y experiencia de usuario.
             </p>
           </div>
@@ -104,8 +108,12 @@ export default function Services() {
         {SERVICES.map((service, idx) => (
           <div
             key={service.number}
-            className={`group relative flex h-[75%] md:h-[70%] lg:h-[75%] w-[85vw] shrink-0 flex-col justify-between overflow-hidden border bg-[var(--color-bg-elevated)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] md:w-[60vw] lg:w-[50vw] ${idx === 0 ? "ml-[10vw] mr-6 md:ml-[15vw] md:mr-12" : "mx-6 md:mx-12"
-              }`}
+            // Altura armoniosa (h-[75%]) para que no quede ni muy corta ni muy larga
+            className={`group relative flex h-[75%] w-[85vw] shrink-0 flex-col justify-between overflow-hidden border bg-[var(--color-bg-elevated)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] md:h-[70%] md:w-[60vw] lg:h-[75%] lg:w-[50vw] ${
+              idx === 0
+                ? "ml-4 mr-4 md:ml-[10vw] md:mr-12" // Márgenes limpios y normales
+                : "mx-4 md:mx-12"
+            }`}
             style={{ borderColor: "var(--color-border)" }}
           >
             {/* Massive Background Number (Outline Style) */}
@@ -119,11 +127,22 @@ export default function Services() {
               {service.number}
             </span>
 
-            <div className="relative z-10 flex h-full flex-col justify-between p-10 md:p-16 lg:p-20">
-              <div className="flex flex-col gap-8 lg:gap-12">
+            {/* Solución de raíz: padding dinámico forzado. 
+                Min 2.5rem (40px) en mobile. Escala fluido hasta un máximo de 5rem (80px) en desktop.
+                Esto es imposible que sea ignorado por el navegador o sobreescrito. */}
+            <div
+              className="relative z-10 flex h-full flex-col justify-between"
+              style={{
+                paddingTop: "clamp(2rem, 5vh, 4rem)",
+                paddingBottom: "clamp(2rem, 5vh, 4rem)",
+                paddingLeft: "clamp(2.5rem, 6vw, 5rem)",
+                paddingRight: "clamp(1.5rem, 5vw, 4rem)",
+              }}
+            >
+              <div className="flex flex-col gap-6 lg:gap-10">
                 <div className="flex flex-col gap-2">
                   <span
-                    className="font-display text-sm font-bold tracking-widest md:text-base"
+                    className="font-display text-xs font-bold tracking-widest md:text-base"
                     style={{ color: "var(--color-accent)" }}
                   >
                     SERVICIO {service.number}
@@ -139,14 +158,14 @@ export default function Services() {
                 </div>
 
                 <p
-                  className="max-w-md text-lg leading-relaxed opacity-80 md:text-xl"
+                  className="max-w-md text-base leading-relaxed opacity-80 md:text-xl"
                   style={{ color: "var(--color-text-primary)" }}
                 >
                   {service.description}
                 </p>
               </div>
 
-              <div className="mt-12">
+              <div className="mt-8 md:mt-12">
                 <div className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
                   Tecnologías
                 </div>
@@ -154,7 +173,7 @@ export default function Services() {
                   {service.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-[var(--color-accent)] md:text-xs"
+                      className="text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:text-[var(--color-accent)] md:text-xs"
                       style={{
                         color: "var(--color-text-secondary)",
                       }}
@@ -168,7 +187,7 @@ export default function Services() {
           </div>
         ))}
 
-        {/* Spacer at the end so the last card doesn't perfectly hug the viewport right edge */}
+        {/* Spacer at the end */}
         <div className="w-[15vw] shrink-0 md:w-[30vw] lg:w-[40vw]" />
       </div>
     </section>

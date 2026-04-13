@@ -11,18 +11,18 @@ const TECH_STACK = [
   {
     category: "Frontend",
     items: [
-      { name: "React / Next.js", note: "Mi herramienta principal. CSR, SSR, ISR según lo que pida el proyecto." },
-      { name: "TypeScript", note: "Porque el código se documenta solo." },
-      { name: "Tailwind CSS", note: "Prototipado rápido sin perder control." },
-      { name: "GSAP", note: "Para animaciones que se sienten, no que se notan." },
+      { name: "React / Next.js", note: "Mi entorno principal para construir interfaces interactivas y escalables." },
+      { name: "TypeScript", note: "Me ayuda a mantener el código predecible, seguro y robusto a largo plazo." },
+      { name: "Tailwind CSS", note: "Ideal para maquetación ágil, manteniendo un diseño consistente." },
+      { name: "GSAP", note: "Lo uso para aportar interacciones suaves que mejoren la experiencia web sin sobrecargarla." },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js / Express", note: "APIs REST rápidas y mantenibles." },
-      { name: "Supabase / PostgreSQL", note: "Auth + DB + Storage. Todo en uno." },
-      { name: "C#", note: "Formación universitaria sólida." },
+      { name: "Node.js / Express", note: "Para construir APIs sencillas, eficientes y fáciles de mantener." },
+      { name: "Supabase / PostgreSQL", note: "Mis bases de datos de confianza para gestionar la información de forma segura." },
+      { name: "C#", note: "El lenguaje donde consolidé mis bases lógicas y estructuradas en la facultad." },
     ],
   },
 ];
@@ -30,7 +30,7 @@ const TECH_STACK = [
 const STATS = [
   { value: "4+", label: "Proyectos en producción" },
   { value: "2025", label: "Graduado UTN" },
-  { value: "∞", label: "Ganas de aprender" },
+  { value: "100%", label: "Desarrollo End-to-End" },
 ];
 
 export default function About() {
@@ -143,27 +143,27 @@ export default function About() {
             <span style={{ color: "var(--color-text-primary)" }}>
               Universidad Tecnológica Nacional
             </span>
-            . Me especializo en crear interfaces que combinan rendimiento con
-            experiencia de usuario.
+            . Disfruto creando productos digitales sólidos de principio a fin.
           </p>
 
           <p className="about-reveal text-xl leading-relaxed sm:text-2xl"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            Mi enfoque es simple:{" "}
+            Opero básicamente como un{" "}
             <span style={{ color: "var(--color-text-primary)" }}>
-              cada pixel importa, cada milisegundo cuenta
+              estudio de un solo desarrollador
             </span>
-            . No sigo tendencias por moda — elijo herramientas porque resuelven
-            problemas reales. Y si algo se puede animar para que se sienta
-            mejor, lo animo.
+            . Me encargo del ciclo de vida completo del proyecto: desde la arquitectura 
+            de datos en el backend hasta la última interacción en la pantalla. Esto me 
+            permite tener una visión íntegra para asegurar que todo encaje perfectamente.
           </p>
 
           <p className="about-reveal text-xl leading-relaxed sm:text-2xl"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            Cuando no estoy programando, probablemente estoy desarmando algún
-            sitio web para entender cómo lo hicieron.
+            Mi enfoque se basa en el aprendizaje continuo y en resolver los problemas de la 
+            forma más limpia posible. Y aunque me encanta llevar proyectos de punta a punta, 
+            siempre estoy dispuesto a charlar sobre nuevas tecnologías, colaborar e intercambiar ideas.
           </p>
         </div>
 
@@ -188,8 +188,11 @@ export default function About() {
         </div>
       </div>
 
+      {/* Espaciador explícito un poco más chico */}
+      <div aria-hidden="true" className="h-24 w-full sm:h-32 md:h-40 lg:h-48" />
+
       {/* Tech Stack */}
-      <div className="tech-grid mt-32 lg:mt-48">
+      <div className="tech-grid w-full">
         <h3
           className="about-reveal mb-16 text-sm sm:text-base font-bold uppercase tracking-[0.3em]"
           style={{ color: "var(--color-text-secondary)" }}
