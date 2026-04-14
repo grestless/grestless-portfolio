@@ -86,20 +86,19 @@ export default function Home() {
             style={{ fontSize: "clamp(2.15rem, 10vw, 6rem)" }}
           >
             {[
-              "No hago sitios",
-              "bonitos. Hago sitios",
-              "que la gente",
-              "quiere usar.",
+              "Diseño limpio.",
+              "Código escalable.",
+              "Webs pensadas",
+              "para las personas.",
             ].map((text, i) => (
               <span key={i} className="block overflow-hidden py-0.5 sm:py-1">
                 <span className="hero-line inline-block">
                   {i === 1 ? (
                     <>
-                      bonitos.{" "}
                       <span style={{ color: "var(--color-accent)" }}>
-                        Hago
-                      </span>
-                      {" sitios"}
+                        Código
+                      </span>{" "}
+                      escalable.
                     </>
                   ) : (
                     text
@@ -119,34 +118,22 @@ export default function Home() {
           </p>
 
           {/* CTA */}
-          <div className="hero-fade flex flex-col items-center gap-5 sm:gap-8 sm:flex-row relative mt-8 sm:mt-12 z-10">
+          <div className="hero-fade flex items-center justify-center gap-8 relative mt-12 z-10">
             <a
               href="#trabajos"
               className="magnetic group flex flex-col"
             >
               <div
-                className="flex items-center gap-4 transition-colors duration-300"
+                className="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] transition-colors duration-200 group-hover:text-accent"
                 style={{ color: "var(--color-text-primary)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--color-accent)";
-                  const line = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (line) line.style.backgroundColor = "var(--color-accent)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--color-text-primary)";
-                  const line = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (line) line.style.backgroundColor = "var(--color-text-primary)";
-                }}
               >
-                <span className="whitespace-nowrap text-sm font-bold uppercase tracking-[0.2em]">
-                  Ver Trabajos
-                </span>
-                <span className="text-xl font-light transform transition-transform duration-300 group-hover:translate-x-2">
+                <span>Ver Trabajos</span>
+                <span className="font-light transform transition-transform duration-300 group-hover:translate-x-2">
                   →
                 </span>
               </div>
               <div
-                className="mt-2 h-[2px] w-full transition-colors duration-300"
+                className="mt-1.5 h-[1px] w-full transition-colors duration-200"
                 style={{ backgroundColor: "var(--color-text-primary)" }}
               />
             </a>

@@ -73,8 +73,8 @@ export default function Navbar() {
         grestless<span style={{ color: "var(--color-accent)" }}>.</span>
       </a>
 
-      {/* Links */}
-      <ul className="hidden items-center gap-8 md:flex">
+      {/* Links - Centrados matemáticamente con posicionamiento absoluto */}
+      <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 md:flex">
         {NAV_LINKS.map((link) => (
           <li key={link.href}>
             <a
@@ -95,17 +95,51 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* Status indicator */}
-      <div className="flex items-center gap-2">
-        <span
-          className="h-2 w-2 rounded-full animate-pulse"
-          style={{ backgroundColor: "var(--color-accent)" }}
-        />
-        <span className="hidden text-xs uppercase tracking-[0.15em] sm:inline"
+      {/* Right side controls (CV + Status) */}
+      <div className="flex items-center gap-4 sm:gap-6">
+        {/* CV Links */}
+        <div 
+          className="flex items-center gap-[0.35rem] text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em]"
           style={{ color: "var(--color-text-secondary)" }}
         >
-          Disponible
-        </span>
+          <span className="opacity-70">Descargar CV:</span>
+          <a
+            href="/CV-GuillermoDGhiggia.pdf"
+            download="CV_Guillermo_Ghiggia_ES.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors duration-200"
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+          >
+            ES
+          </a>
+          <span className="opacity-40">/</span>
+          <a
+            href="/CV-GuillermoDGhiggiaEN.pdf"
+            download="CV_Guillermo_Ghiggia_EN.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors duration-200"
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+          >
+            EN
+          </a>
+        </div>
+
+        {/* Status indicator */}
+        <div className="flex items-center gap-2">
+          <span
+            className="h-2 w-2 rounded-full animate-pulse"
+            style={{ backgroundColor: "var(--color-accent)" }}
+          />
+          <span className="hidden text-xs uppercase tracking-[0.15em] sm:inline"
+            style={{ color: "var(--color-text-secondary)" }}
+          >
+            Disponible
+          </span>
+        </div>
       </div>
     </nav>
   );
