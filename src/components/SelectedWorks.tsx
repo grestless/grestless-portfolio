@@ -13,6 +13,7 @@ interface Project {
   number: string;
   title: string;
   category: string;
+  description: string;
   year: string;
   url: string;
   image: string;
@@ -21,20 +22,11 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    id: "hecho-arte",
-    number: "01",
-    title: "Hecho Arte",
-    category: "Landing Page — E-commerce",
-    year: "2026",
-    url: "https://hecho-arte.vercel.app/",
-    image: "/projects/HA.png",
-    tech: ["Next.js", "React", "Tailwind CSS", "GSAP"],
-  },
-  {
     id: "moonparet",
-    number: "02",
+    number: "01",
     title: "Moonparet",
     category: "E-commerce — Full Stack",
+    description: "Tienda online integral con gestión de pagos y panel administrativo.",
     year: "2025",
     url: "https://moonparet.vercel.app/",
     image: "/projects/moonparet.png",
@@ -42,19 +34,32 @@ const PROJECTS: Project[] = [
   },
   {
     id: "yoreparo",
-    number: "03",
+    number: "02",
     title: "YoReparo",
     category: "Plataforma — Full Stack",
+    description: "Red de servicios que conecta profesionales técnicos con clientes.",
     year: "2025",
     url: "https://yoreparo.app/",
     image: "/projects/inicioYoRep.png",
     tech: ["React", "Next.js", "TypeScript", "PostgreSQL"],
+  },
+   {
+    id: "hecho-arte",
+    number: "03",
+    title: "Hecho Arte",
+    category: "Landing Page — Personal",
+    description: "Experiencia visual inmersiva orientada a la exposición de productos artesanales.",
+    year: "2026",
+    url: "https://hecho-arte.vercel.app/",
+    image: "/projects/HA.png",
+    tech: ["Next.js", "React", "Tailwind CSS", "GSAP"],
   },
   {
     id: "mjm-soluciones",
     number: "04",
     title: "MJM Soluciones",
     category: "Landing Page — Corporativa",
+    description: "Presencia web digital optimizada para la conversión y captación de clientes.",
     year: "2025",
     url: "https://landingmjmsoluciones.vercel.app/",
     image: "/projects/mjmSoluc.png",
@@ -257,16 +262,24 @@ export default function SelectedWorks() {
               </h3>
             </div>
 
-            {/* Center: Category */}
-            <span
-              className="text-sm md:text-base lg:text-lg transition-colors duration-300 lg:w-1/4"
-              style={{ color: "var(--color-text-secondary)" }}
-            >
-              {project.category}
-            </span>
+            {/* Center: Category & Description */}
+            <div className="flex flex-col gap-1.5 md:gap-2 lg:w-1/3 xl:w-1/4">
+              <span
+                className="text-sm md:text-base lg:text-lg transition-colors duration-300"
+                style={{ color: "var(--color-text-primary)" }}
+              >
+                {project.category}
+              </span>
+              <p 
+                className="text-xs md:text-sm leading-relaxed"
+                style={{ color: "var(--color-text-secondary)" }}
+              >
+                {project.description}
+              </p>
+            </div>
 
             {/* Right: Year + Tech */}
-            <div className="flex items-center justify-between gap-4 md:justify-end lg:w-1/4 mt-auto md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-[var(--color-border)] md:border-transparent">
+            <div className="flex items-center justify-between gap-4 md:justify-end lg:w-[30%] xl:w-1/4 mt-auto md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-[var(--color-border)] md:border-transparent">
               <div className="flex flex-wrap gap-2 md:justify-end">
                 {project.tech.map((t) => (
                   <span key={t} className="text-xs border px-2 py-1 rounded-full whitespace-nowrap" style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}>
