@@ -25,7 +25,7 @@ const PROJECTS: Project[] = [
     number: "01",
     title: "Hecho Arte",
     category: "Landing Page — E-commerce",
-    year: "2025",
+    year: "2026",
     url: "https://hecho-arte.vercel.app/",
     image: "/projects/HA.png",
     tech: ["Next.js", "React", "Tailwind CSS", "GSAP"],
@@ -203,38 +203,55 @@ export default function SelectedWorks() {
         <span style={{ color: "var(--color-accent)" }}>hablan por mí.</span>
       </h2>
 
-      {/* Project rows */}
-      <div className="flex flex-col w-full border-t" style={{ borderColor: "var(--color-border)" }}>
+      {/* Project rows / Horizontal Mobile Cards */}
+      <div 
+        className="flex md:flex-col w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-6 md:gap-0 md:border-t pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" 
+        style={{ borderColor: "var(--color-border)" }}
+      >
         {PROJECTS.map((project) => (
           <a
             key={project.id}
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-row group flex flex-col gap-8 border-b py-6 transition-colors duration-500 md:flex-row md:items-center md:justify-between md:py-8 lg:py-10"
+            className="project-row group flex flex-col gap-4 md:gap-8 md:border-b md:py-8 lg:py-10 transition-colors duration-500 md:flex-row md:items-center md:justify-between min-w-[85vw] sm:min-w-[70vw] md:min-w-0 snap-center snap-always border border-[var(--color-border)] md:border-x-0 md:border-t-0 rounded-2xl md:rounded-none p-4 md:p-0"
             style={{ borderColor: "var(--color-border)" }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-text-primary)";
+              if (window.innerWidth >= 768) e.currentTarget.style.borderColor = "var(--color-text-primary)";
               handleMouseEnter(project.id);
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-border)";
+              if (window.innerWidth >= 768) e.currentTarget.style.borderColor = "var(--color-border)";
               handleMouseLeave();
             }}
           >
+            {/* Mobile Image (Carrusel Card Image) */}
+            <div 
+              className="relative w-full aspect-[4/3] overflow-hidden rounded-xl md:hidden flex items-center justify-center p-2"
+              style={{ backgroundColor: "var(--color-bg-secondary)" }}
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-contain transition-transform duration-700 group-active:scale-95 p-2"
+                sizes="(max-width: 768px) 85vw, 320px"
+              />
+            </div>
+
             {/* Left: Number + Title */}
-            <div className="flex flex-1 items-start md:items-center gap-6 lg:gap-12 py-1">
+            <div className="flex flex-1 flex-col md:flex-row md:items-center gap-2 md:gap-6 lg:gap-12 py-1">
               <span
-                className="font-display text-lg font-bold md:min-w-[3rem] lg:text-2xl mt-1 md:mt-0"
+                className="font-display text-sm md:text-lg font-bold md:min-w-[3rem] lg:text-2xl"
                 style={{ color: "var(--color-text-secondary)" }}
               >
                 /{project.number}
               </span>
               <h3
-                className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1] transition-transform duration-500 group-hover:translate-x-6"
-                style={{ letterSpacing: "-0.03em", wordBreak: "break-word" }}
+                className="font-display text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1] transition-transform duration-500 md:group-hover:translate-x-6"
+                style={{ letterSpacing: "-0.03em" }}
               >
-                <span className="transition-colors lg:text-7xl md:text-6xl sm:text-5xl duration-500 group-hover:text-[var(--color-accent)] inline-block pb-2">
+                <span className="transition-colors md:group-hover:text-[var(--color-accent)] inline-block md:pb-2">
                   {project.title}
                 </span>
               </h3>
@@ -242,30 +259,23 @@ export default function SelectedWorks() {
 
             {/* Center: Category */}
             <span
-              className="mt-2 text-base transition-colors duration-300 md:mt-0 md:text-lg lg:w-1/4"
+              className="text-sm md:text-base lg:text-lg transition-colors duration-300 lg:w-1/4"
               style={{ color: "var(--color-text-secondary)" }}
             >
               {project.category}
             </span>
 
-            {/* Right: Year + Arrow */}
-            <div className="flex items-center justify-between gap-6 md:justify-end lg:w-1/4">
-              <div className="flex flex-wrap gap-2">
-                {project.tech.slice(0, 2).map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border px-4 py-2 text-xs uppercase tracking-wider transition-colors duration-300"
-                    style={{
-                      borderColor: "var(--color-border)",
-                      color: "var(--color-text-secondary)",
-                    }}
-                  >
+            {/* Right: Year + Tech */}
+            <div className="flex items-center justify-between gap-4 md:justify-end lg:w-1/4 mt-auto md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-[var(--color-border)] md:border-transparent">
+              <div className="flex flex-wrap gap-2 md:justify-end">
+                {project.tech.map((t) => (
+                  <span key={t} className="text-xs border px-2 py-1 rounded-full whitespace-nowrap" style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}>
                     {t}
                   </span>
                 ))}
               </div>
               <span
-                className="text-base font-medium"
+                className="text-sm md:text-base font-medium flex-shrink-0"
                 style={{ color: "var(--color-text-secondary)" }}
               >
                 {project.year}

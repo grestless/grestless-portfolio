@@ -171,6 +171,20 @@
   button {
     cursor: auto;
   }
+
+  /* ── Touch Feedback ── */
+  a:active,
+  button:active,
+  .project-row:active {
+    transform: scale(0.98);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a,
+  button,
+  .project-row {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 /* Removed -- Hero Text Aesthetic Hover */
