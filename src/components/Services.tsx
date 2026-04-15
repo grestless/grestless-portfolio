@@ -73,7 +73,7 @@ export default function Services() {
         {/* Intro Panel: Ocupa toda la pantalla (w-screen) y se centra perfectamente */}
         <div className="editorial-px flex h-full w-screen shrink-0 flex-col justify-center lg:pl-[10vw]">
           {/* Aumentado el margen inferior en mobile de mb-6 a mb-12 */}
-          <div className="mb-12 flex items-center gap-4 md:mb-16 text-balance">
+          <div className="mb-6 flex items-center gap-4 md:mb-8 text-balance">
             <div
               className="h-2 w-2 rounded-full"
               style={{ backgroundColor: "var(--color-accent)" }}
@@ -97,7 +97,7 @@ export default function Services() {
           </h2>
 
           {/* Aumentado el margen superior de mt-8 a mt-12 y un texto un poquito más grande (text-xl) */}
-          <div className="mt-12 max-w-md md:mt-16">
+          <div className="mt-6 max-w-md md:mt-8">
             <p className="text-xl leading-relaxed opacity-60 md:text-2xl" style={{ color: "var(--color-text-primary)" }}>
               Soluciones digitales de alto nivel enfocadas en rendimiento, estética y experiencia de usuario.
             </p>
@@ -111,8 +111,8 @@ export default function Services() {
             // Altura armoniosa (h-[75%]) para que no quede ni muy corta ni muy larga
             className={`group relative flex h-[75%] w-[85vw] shrink-0 flex-col justify-between overflow-hidden border bg-[var(--color-bg-elevated)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] md:h-[70%] md:w-[60vw] lg:h-[75%] lg:w-[50vw] ${
               idx === 0
-                ? "ml-4 mr-4 md:ml-[10vw] md:mr-12" // Márgenes limpios y normales
-                : "mx-4 md:mx-12"
+                ? "md:ml-[10vw]"
+                : ""
             }`}
             style={{ borderColor: "var(--color-border)" }}
           >
@@ -165,8 +165,8 @@ export default function Services() {
                 </p>
               </div>
 
-              <div className="mt-8 md:mt-12">
-                <div className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
+              <div className="mt-4 md:mt-6">
+                <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
                   Tecnologías
                 </div>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3">

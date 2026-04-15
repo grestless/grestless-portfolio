@@ -187,7 +187,7 @@ export default function Home() {
       <SelectedWorks />
 
       {/* ═══ MARQUEE ═══ */}
-      <div className="relative w-full block">
+      <div className="relative w-full block py-3 lg:py-4">
         <Marquee />
       </div>
 

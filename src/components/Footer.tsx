@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="editorial-px flex min-h-[100px] flex-col items-start justify-between gap-8 border-t py-24 lg:py-32 sm:flex-row sm:items-center"
+      className="editorial-px flex min-h-[100px] flex-col items-start justify-between gap-8 border-t py-10 lg:py-12 sm:flex-row sm:items-center"
       style={{ borderColor: "var(--color-border)" }}
     >
       <span

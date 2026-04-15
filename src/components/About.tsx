@@ -98,10 +98,10 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="editorial-px relative py-32 lg:py-48"
+      className="editorial-px relative py-10 lg:py-12"
     >
       {/* Section label */}
-      <div className="about-reveal mb-16 flex items-center gap-4">
+      <div className="about-reveal mb-8 flex items-center gap-4">
         <span
           className="text-xs font-medium uppercase tracking-[0.3em]"
           style={{ color: "var(--color-accent)" }}
@@ -122,7 +122,7 @@ export default function About() {
 
       {/* Title */}
       <h2
-        className="about-title font-display mb-24 max-w-5xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-8xl"
+        className="about-title font-display mb-12 max-w-5xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-8xl"
         style={{ letterSpacing: "-0.04em" }}
       >
         Construyo para la web <br />
@@ -178,7 +178,7 @@ export default function About() {
                 {stat.value}
               </span>
               <span
-                className="mt-4 block text-xs uppercase tracking-[0.2em]"
+                className="mt-2 block text-xs uppercase tracking-[0.2em]"
                 style={{ color: "var(--color-text-secondary)" }}
               >
                 {stat.label}
@@ -189,12 +189,12 @@ export default function About() {
       </div>
 
       {/* Espaciador explícito un poco más chico */}
-      <div aria-hidden="true" className="h-24 w-full sm:h-32 md:h-40 lg:h-48" />
+      <div aria-hidden="true" className="h-12 w-full sm:h-16 md:h-20 lg:h-24" />
 
       {/* Tech Stack */}
       <div className="tech-grid w-full">
         <h3
-          className="about-reveal mb-16 text-sm sm:text-base font-bold uppercase tracking-[0.3em]"
+          className="about-reveal mb-8 text-sm sm:text-base font-bold uppercase tracking-[0.3em]"
           style={{ color: "var(--color-text-secondary)" }}
         >
           Stack & Herramientas
@@ -204,7 +204,7 @@ export default function About() {
           {TECH_STACK.map((group) => (
             <div key={group.category}>
               <span
-                className="tech-item mb-8 block text-sm font-bold uppercase tracking-[0.2em]"
+                className="tech-item mb-4 block text-sm font-bold uppercase tracking-[0.2em]"
                 style={{ color: "var(--color-accent)" }}
               >
                 {group.category}

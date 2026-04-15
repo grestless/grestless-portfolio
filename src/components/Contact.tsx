@@ -59,10 +59,10 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contacto"
-      className="editorial-px mt-32 lg:mt-48 relative pt-32 pb-48 lg:pt-48 lg:pb-64"
+      className="editorial-px relative py-10 lg:py-12"
     >
       {/* Section label */}
-      <div className="contact-reveal mb-16 mt-24 flex items-center gap-4">
+      <div className="contact-reveal mb-8 flex items-center gap-4">
         <span
           className="text-xs font-medium uppercase tracking-[0.3em]"
           style={{ color: "var(--color-accent)" }}
@@ -92,7 +92,7 @@ export default function Contact() {
 
         <a
           href="mailto:guillermodghiggia@outlook.com"
-          className="magnetic font-display mt-8 inline-block text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] transition-colors duration-500 sm:text-5xl md:text-6xl lg:text-8xl"
+          className="magnetic font-display mt-4 inline-block text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] transition-colors duration-500"
           style={{ letterSpacing: "-0.03em", wordBreak: "break-word" }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.color = "var(--color-accent)")
@@ -108,7 +108,7 @@ export default function Contact() {
       </div>
 
       {/* Social Links (Simple) */}
-      <div className="contact-reveal mt-32 flex items-center gap-8 lg:mt-48">
+      <div className="contact-reveal mt-12 flex items-center gap-8 lg:mt-16">
         {SOCIAL_LINKS.map((link) => (
           <a
             key={link.label}

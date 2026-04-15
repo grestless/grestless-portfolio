@@ -149,7 +149,7 @@ export default function SelectedWorks() {
     <section
       ref={sectionRef}
       id="trabajos"
-      className="editorial-px relative py-32 lg:py-48 "
+      className="editorial-px relative py-10 lg:py-12"
       onMouseMove={handleMouseMove}
     >
       {/* Floating preview image */}
@@ -175,7 +175,7 @@ export default function SelectedWorks() {
       </div>
 
       {/* Section label */}
-      <div className="mb-16 flex items-center gap-4">
+      <div className="mb-8 flex items-center gap-4">
         <span
           className="text-xs font-medium uppercase tracking-[0.3em]"
           style={{ color: "var(--color-accent)" }}
@@ -196,7 +196,7 @@ export default function SelectedWorks() {
 
       {/* Title */}
       <h2
-        className="works-title font-display mb-24 max-w-5xl text-4xl font-bold sm:text-5xl md:text-6xl lg:text-8xl"
+        className="works-title font-display mb-12 max-w-5xl text-4xl font-bold sm:text-5xl md:text-6xl lg:text-8xl"
         style={{ letterSpacing: "-0.04em" }}
       >
         Proyectos que <br />
@@ -211,7 +211,7 @@ export default function SelectedWorks() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-row group flex flex-col gap-8 border-b py-12 transition-colors duration-500 md:flex-row md:items-center md:justify-between md:py-16 lg:py-24"
+            className="project-row group flex flex-col gap-8 border-b py-6 transition-colors duration-500 md:flex-row md:items-center md:justify-between md:py-8 lg:py-10"
             style={{ borderColor: "var(--color-border)" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "var(--color-text-primary)";
@@ -223,9 +223,9 @@ export default function SelectedWorks() {
             }}
           >
             {/* Left: Number + Title */}
-            <div className="flex flex-1 items-start md:items-center gap-6 lg:gap-12 py-4">
+            <div className="flex flex-1 items-start md:items-center gap-6 lg:gap-12 py-1">
               <span
-                className="font-display text-lg font-bold md:min-w-[3rem] lg:text-2xl mt-2 md:mt-0"
+                className="font-display text-lg font-bold md:min-w-[3rem] lg:text-2xl mt-1 md:mt-0"
                 style={{ color: "var(--color-text-secondary)" }}
               >
                 /{project.number}
@@ -242,7 +242,7 @@ export default function SelectedWorks() {
 
             {/* Center: Category */}
             <span
-              className="mt-4 text-base transition-colors duration-300 md:mt-0 md:text-lg lg:w-1/4"
+              className="mt-2 text-base transition-colors duration-300 md:mt-0 md:text-lg lg:w-1/4"
               style={{ color: "var(--color-text-secondary)" }}
             >
               {project.category}
