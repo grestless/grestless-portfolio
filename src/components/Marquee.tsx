@@ -12,7 +12,8 @@ export default function Marquee() {
     "POSTGRESQL",
     "UI DESIGN",
     "UX",
-    "FIGMA",
+    "DESARROLLO WEB",
+    "PERFORMANCE",
     "GIT",
   ];
 

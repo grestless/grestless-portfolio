@@ -201,16 +201,29 @@ export default function SelectedWorks() {
 
       {/* Title */}
       <h2
-        className="works-title font-display mb-12 max-w-5xl text-4xl font-bold sm:text-5xl md:text-6xl lg:text-8xl"
+        className="works-title font-display mb-6 md:mb-12 max-w-5xl text-4xl font-bold sm:text-5xl md:text-6xl lg:text-8xl"
         style={{ letterSpacing: "-0.04em" }}
       >
         Proyectos que <br />
         <span style={{ color: "var(--color-accent)" }}>hablan por mí.</span>
       </h2>
 
+      {/* Swipe Hint (Mobile only) */}
+      <div 
+        className="flex items-center gap-3 mb-8 md:hidden opacity-70"
+        style={{ color: "var(--color-text-secondary)" }}
+      >
+        <svg className="w-5 h-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        </svg>
+        <span className="text-sm font-medium uppercase tracking-widest">
+          Desliza para explorar
+        </span>
+      </div>
+
       {/* Project rows / Horizontal Mobile Cards */}
       <div 
-        className="flex md:flex-col w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-6 md:gap-0 md:border-t pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" 
+        className="flex w-screen md:w-full relative left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:flex-col overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 md:gap-0 md:border-t pb-8 md:pb-0 px-[7.5vw] md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] after:content-[''] after:w-[1px] after:shrink-0 md:after:hidden" 
         style={{ borderColor: "var(--color-border)" }}
       >
         {PROJECTS.map((project) => (
@@ -219,7 +232,7 @@ export default function SelectedWorks() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-row group flex flex-col gap-4 md:gap-8 md:border-b md:py-8 lg:py-10 transition-colors duration-500 md:flex-row md:items-center md:justify-between min-w-[85vw] sm:min-w-[70vw] md:min-w-0 snap-center snap-always border border-[var(--color-border)] md:border-x-0 md:border-t-0 rounded-2xl md:rounded-none p-4 md:p-0"
+            className="project-row group flex flex-col gap-4 md:gap-8 md:border-b md:py-8 lg:py-10 transition-colors duration-500 md:flex-row md:items-center md:justify-between w-[85vw] sm:w-[70vw] md:w-full shrink-0 snap-center snap-always border border-[var(--color-border)] md:border-x-0 md:border-t-0 rounded-2xl md:rounded-none p-4 md:p-0"
             style={{ borderColor: "var(--color-border)" }}
             onMouseEnter={(e) => {
               if (window.innerWidth >= 768) e.currentTarget.style.borderColor = "var(--color-text-primary)";
