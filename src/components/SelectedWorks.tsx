@@ -18,6 +18,7 @@ interface Project {
   url: string;
   image: string;
   tech: string[];
+  badge?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -31,6 +32,7 @@ const PROJECTS: Project[] = [
     url: "https://moonparet.vercel.app/",
     image: "/projects/moonparet.png",
     tech: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
+    badge: "Cliente Real | Trabajo Final",
   },
   {
     id: "yoreparo",
@@ -42,6 +44,7 @@ const PROJECTS: Project[] = [
     url: "https://yoreparo.app/",
     image: "/projects/inicioYoRep.png",
     tech: ["React", "Next.js", "TypeScript", "PostgreSQL"],
+    badge: "Cliente Real",
   },
    {
     id: "hecho-arte",
@@ -64,6 +67,7 @@ const PROJECTS: Project[] = [
     url: "https://landingmjmsoluciones.vercel.app/",
     image: "/projects/mjmSoluc.png",
     tech: ["Next.js", "React", "Tailwind CSS", "Shadcn/ui"],
+    badge: "Cliente Real",
   },
 ];
 
@@ -275,14 +279,28 @@ export default function SelectedWorks() {
               </h3>
             </div>
 
-            {/* Center: Category & Description */}
+            {/* Center: Category, Badge & Description */}
             <div className="flex flex-col gap-1.5 md:gap-2 lg:w-1/3 xl:w-1/4">
-              <span
-                className="text-sm md:text-base lg:text-lg transition-colors duration-300"
-                style={{ color: "var(--color-text-primary)" }}
-              >
-                {project.category}
-              </span>
+              <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                <span
+                  className="text-sm md:text-base lg:text-lg transition-colors duration-300"
+                  style={{ color: "var(--color-text-primary)" }}
+                >
+                  {project.category}
+                </span>
+                {/* Renderizado condicional del Badge */}
+                {project.badge && (
+                  <span 
+                    className="text-[10px] md:text-xs px-2.5 py-0.5 rounded-full border uppercase tracking-wider font-medium whitespace-nowrap"
+                    style={{ 
+                      borderColor: "var(--color-accent)", 
+                      color: "var(--color-accent)" 
+                    }}
+                  >
+                    {project.badge}
+                  </span>
+                )}
+              </div>
               <p 
                 className="text-xs md:text-sm leading-relaxed"
                 style={{ color: "var(--color-text-secondary)" }}
