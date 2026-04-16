@@ -20,14 +20,14 @@ const SERVICES = [
     title: "Desarrollo Backend",
     description:
       "APIs REST, autenticación, bases de datos, pasarelas de pago. La infraestructura invisible que hace que todo funcione sin fricciones.",
-    tools: ["Node.js", "Express", "Supabase", "PostgreSQL", "Stripe"],
+    tools: ["Node.js", "Express", "Supabase", "PostgreSQL"],
   },
   {
     number: "03",
     title: "Diseño UI/UX",
     description:
       "Diseño centrado en el usuario. No sigo tendencias — resuelvo problemas con interfaces claras, rápidas y que generan confianza.",
-    tools: ["Figma", "Prototipado", "Sistemas de diseño", "Testing"],
+    tools: ["Prototipado", "Sistemas de diseño", "Testing"],
   },
 ];
 
