@@ -17,15 +17,14 @@ export default function Footer() {
         className="text-xs"
         style={{ color: "var(--color-text-secondary)" }}
       >
-        Diseñado y desarrollado por mí, con café y{" "}
+        Crafted in Argentina.{" "}
         <span
           className="select-none"
           title="Hiciste bien en inspeccionar esto 👀"
           style={{ color: "var(--color-accent)" }}
         >
-          obsesión por los detalles
+          Built for the web.
         </span>
-        .
       </span>
 
       {/* Easter egg — local time */}

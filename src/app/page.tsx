@@ -4,14 +4,12 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import dynamic from "next/dynamic";
-
-const Marquee = dynamic(() => import("@/components/Marquee"), { ssr: false });
-const Services = dynamic(() => import("@/components/Services"), { ssr: false });
-const About = dynamic(() => import("@/components/About"), { ssr: true });
-const SelectedWorks = dynamic(() => import("@/components/SelectedWorks"), { ssr: true });
-const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+import Marquee from "@/components/Marquee";
+import Services from "@/components/Services";
+import About from "@/components/About";
+import SelectedWorks from "@/components/SelectedWorks";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 

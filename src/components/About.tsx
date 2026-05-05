@@ -125,9 +125,9 @@ export default function About() {
         className="about-title font-display mb-12 max-w-5xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-8xl"
         style={{ letterSpacing: "-0.04em" }}
       >
-        Construyo para la web <br />
+        Diseño. Desarrollo. <br />
         <span style={{ color: "var(--color-accent)" }}>
-          desde Tucumán al mundo.
+          Despliegue.
         </span>
       </h2>
 
